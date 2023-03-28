@@ -36,7 +36,7 @@ trait UploadableModelTrait
         foreach ($options['attributes'] as $key) {
             if ($request->hasFile($key)) {
                 if ($this->original && $this->original[$key]) {
-                    UploadableFileHandler::delete($key, $options['attributes'] ?? null);
+                    UploadableFileHandler::delete($key, $options['disk'] ?? null);
                 }
 
                 $files = $request->file($key);
